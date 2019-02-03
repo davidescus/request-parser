@@ -43,7 +43,11 @@ func main() {
 	if storage := os.Getenv("STORAGE_HOST"); storage != "" {
         storageHost = storage
 	}
-	
+
+	if generatorHost == "" || storageHost == "" {
+		panic("Empty env vars")
+	}
+
     processAndStoreData()
 	fmt.Println(" ------------- Finish -------------")
 }
